@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import Base from '../views/Base.vue'
 import Login from '../views/Login.vue'
 
 Vue.use(VueRouter)
@@ -14,9 +14,9 @@ VueRouter.prototype.push = function push(location: any) {
 }
 const routes: Array<RouteConfig> = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/base',
+    name: 'Base',
+    component: Base
   },
   {
     path: '/login',
