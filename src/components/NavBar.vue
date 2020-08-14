@@ -5,7 +5,9 @@
         <div class="item" v-if="typeof(item)==='string'">{{item}}</div>
         <div v-else class="item item-list">
           <div class="item-list-default">{{item['1']}}</div>
-          <div class="item-list-all" v-for="(val,index_v) in item" :key="index_v">{{val}}</div>
+          <div class="item-list-all" >
+            <div v-for="(val,index_v) in item" :key="index_v">{{val}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -19,7 +21,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class NavBar extends Vue {
   // eslint-disable-next-line
   private navList = {
-    CN: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb"]],
+    CN: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb","ccc"]],
     CNT: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb"]],
     ENG: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb"]],
   };
@@ -52,6 +54,7 @@ export default class NavBar extends Vue {
   .item {
     line-height: 30px;
     flex-shrink: 1;
+    position: relative;
   }
   .item-list {
     position: relative;

@@ -1,6 +1,6 @@
 <template>
   <div class="web-header">
-    <div>{{msg}}</div>
+    <div>1212</div>
   </div>
 </template>
 
