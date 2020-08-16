@@ -1,14 +1,14 @@
 <template>
   <div class="nav-bar">
     <div class="content">
-      <div v-for="(item,index) in navList[langTp]" :key="index">
-        <div class="item" v-if="typeof(item)==='string'">{{item}}</div>
-        <div v-else class="item item-list">
+      <div class="content-item" v-for="(item,index) in navList[langTp]" :key="index">
+        <div class="item-one" v-if="typeof(item)==='string'">{{item}}</div>
+        <!-- <div v-else class="item item-list">
           <div class="item-list-default">{{item['1']}}</div>
-          <div class="item-list-all" >
+          <div class="item-list-all">
             <div v-for="(val,index_v) in item" :key="index_v">{{val}}</div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -21,7 +21,21 @@ import { Component, Vue } from "vue-property-decorator";
 export default class NavBar extends Vue {
   // eslint-disable-next-line
   private navList = {
-    CN: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb","ccc"]],
+    CN: [
+      "首页",
+      "论坛",
+      "种子",
+      "MV",
+      "游戏",
+      "官方",
+      "求种保种",
+      "候选",
+      "发布",
+      "娱乐",
+      "控制面板",
+      "排行榜",
+      "Wiki",
+    ],
     CNT: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb"]],
     ENG: ["aaa", "aaa", "aaa", "aaa", "aaa", "aaa", ["aaa", "bbb"]],
   };
@@ -38,27 +52,34 @@ export default class NavBar extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+@imageBack: "../assets/icon";
 .nav-bar {
   width: 100%;
-  display: flex;
+  height: 100%;
 }
 .content {
   width: 910px;
   height: 30px;
-  background-color: #aaa;
+  overflow: hidden;
   position: absolute;
   left: 50%;
   margin-left: -455px;
   display: flex;
-  justify-content: space-around;
-  .item {
+  flex-direction: row;
+  // justify-content: space-around;
+  .content-item{
+    flex: auto;
+  }
+  .item-one {
     line-height: 30px;
-    flex-shrink: 1;
+    margin: 0 1px;
     position: relative;
+    background: url("@{imageBack}/shade.gif") white repeat-x left top;
   }
   .item-list {
     position: relative;
     display: inline-block;
+    width: 100%;
     .item-list-all {
       display: none;
       position: absolute;

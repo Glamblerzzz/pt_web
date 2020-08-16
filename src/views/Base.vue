@@ -22,7 +22,8 @@ export default class Base extends Vue {
 </script>
 <style lang="less" scoped>
 .base {
-  width: 100%;
+  width: 90%;
+  margin: 0 5%;
   min-width: 910px;
 }
 </style>
