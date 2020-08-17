@@ -3,12 +3,10 @@
     <div class="content">
       <div class="content-item" v-for="(item,index) in navList[langTp]" :key="index">
         <div class="item-one" v-if="typeof(item)==='string'">{{item}}</div>
-        <!-- <div v-else class="item item-list">
-          <div class="item-list-default">{{item['1']}}</div>
-          <div class="item-list-all">
-            <div v-for="(val,index_v) in item" :key="index_v">{{val}}</div>
-          </div>
-        </div> -->
+        <div v-else class="item-one item-list">
+          <div class="item-list-default">{{item['0']}}</div>
+          <div class="item-list-all" v-for="(val,index_v) in item" :key="index_v">{{val}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -28,7 +26,7 @@ export default class NavBar extends Vue {
       "MV",
       "游戏",
       "官方",
-      "求种保种",
+      ["求种保种", "求种"],
       "候选",
       "发布",
       "娱乐",
@@ -67,7 +65,7 @@ export default class NavBar extends Vue {
   display: flex;
   flex-direction: row;
   // justify-content: space-around;
-  .content-item{
+  .content-item {
     flex: auto;
   }
   .item-one {
@@ -78,14 +76,21 @@ export default class NavBar extends Vue {
   }
   .item-list {
     position: relative;
-    display: inline-block;
-    width: 100%;
+    .item-list-default{
+      position: relative;
+    }
     .item-list-all {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 160px;
-      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0);
+      // display: none;
+      position: relative;
+      height: 30px;
+      border: black 1px solid;
+      z-index: 1000;
+    }
+  }
+  .item-one:hover{
+    background: black;
+    .item-list-all{
+      display: block;
     }
   }
   .item-list:hover .item-list-all {
